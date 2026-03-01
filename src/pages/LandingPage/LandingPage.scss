@@ -5,7 +5,7 @@
     color: $color-primary-black;
     background-color: $color-primary-white;
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: clip;
     scroll-behavior: smooth;
 }
 
