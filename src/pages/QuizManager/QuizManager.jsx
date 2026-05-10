@@ -38,37 +38,38 @@ const QuizManager = ({ responses, setResponses }) => {
 
     const handleSubmit = async () => {
         if (allAnswered) {
-            try {
-                const response = await fetch("http://localhost:8080/api/quiz", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(responses)
-                });
+            navigate("/results")
+            // try {
+            //     const response = await fetch("http://localhost:8080/api/quiz", {
+            //         method: "POST",
+            //         headers: {
+            //             "Content-Type": "application/json"
+            //         },
+            //         body: JSON.stringify(responses)
+            //     });
 
-                if (response.ok) {
-                    const data = await response.json();
-                    console.log("Quiz submitted!", data);
-                    if (data && data.user_id) {
-                        setResponses({
-                            age: "", gender: "", sexual_orientation: "", education: "",
-                            location: "", career_field: "", career_ambition: "",
-                            openness: "", extraversion: "", agreeableness: "",
-                            conscientiousness: "", chronotype: "", spontaneity: "",
-                            love_language: "", emotional_expressiveness: ""
-                        });
-                        setStep(1);
-                        navigate(`/results/${data.user_id}`);
-                    } else {
-                        console.error("Missing user_id from response.");
-                    }
-                } else {
-                    console.error("Failed to submit quiz");
-                }
-            } catch (error) {
-                console.error("Error submitting quiz:", error);
-            }
+            //     if (response.ok) {
+            //         const data = await response.json();
+            //         console.log("Quiz submitted!", data);
+            //         if (data && data.user_id) {
+            //             setResponses({
+            //                 age: "", gender: "", sexual_orientation: "", education: "",
+            //                 location: "", career_field: "", career_ambition: "",
+            //                 openness: "", extraversion: "", agreeableness: "",
+            //                 conscientiousness: "", chronotype: "", spontaneity: "",
+            //                 love_language: "", emotional_expressiveness: ""
+            //             });
+            //             setStep(1);
+            //             navigate(`/results/${data.user_id}`);
+            //         } else {
+            //             console.error("Missing user_id from response.");
+            //         }
+            //     } else {
+            //         console.error("Failed to submit quiz");
+            //     }
+            // } catch (error) {
+            //     console.error("Error submitting quiz:", error);
+            // }
         }
     };
 

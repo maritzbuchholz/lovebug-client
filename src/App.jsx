@@ -32,7 +32,7 @@ function App() {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/quizmanager" element={<QuizManager responses={responses} setResponses={setResponses} />} />
-            <Route path="/results/:id" element={<ResultPage />} />
+            <Route path="/results/" element={<ResultPage />} />
           </Routes>
         </BrowserRouter>
       </div>
